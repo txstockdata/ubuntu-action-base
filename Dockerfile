@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL org.opencontainers.image.source https://github.com/txstockdata/ubuntu-action-base
 
@@ -15,3 +15,5 @@ RUN echo \
 RUN apt-get update && apt-get install -y docker-ce docker-ce-cli docker-buildx-plugin nodejs podman
 
 RUN curl -fsSL https://deno.land/install.sh | sh -s -- --yes
+
+RUN curl -fsSL https://bun.sh/install | bash
