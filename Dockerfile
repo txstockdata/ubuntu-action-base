@@ -12,7 +12,11 @@ RUN echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-RUN apt-get update && apt-get install -y docker-ce docker-ce-cli docker-buildx-plugin nodejs podman
+RUN apt-get update && apt-get install -y docker-ce docker-ce-cli docker-buildx-plugin podman
+
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && apt-get install -y nodejs
+
+RUN corepack enable pnpm
 
 RUN curl -fsSL https://deno.land/install.sh | sh -s -- --yes
 
