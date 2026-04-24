@@ -16,6 +16,13 @@ RUN apt-get update && apt-get install -y docker-ce docker-ce-cli docker-buildx-p
 
 RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && apt-get install -y nodejs
 
+RUN npm install -g \
+  semantic-release@23 \
+  @semantic-release/commit-analyzer \
+  @semantic-release/release-notes-generator \
+  @semantic-release/changelog \
+  @semantic-release/git
+
 RUN corepack enable pnpm
 
 RUN curl -fsSL https://deno.land/install.sh | sh -s -- --yes
